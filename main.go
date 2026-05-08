@@ -110,23 +110,41 @@ func quadE(x, y int) string {
 	if x <= 0 || y <= 0 {
 		return ""
 	}
+
 	var res strings.Builder
+
 	for row := 1; row <= y; row++ {
 		for col := 1; col <= x; col++ {
-			if row == 1 && (col == 1 || col == x) {
+
+			// Top-left
+			if row == 1 && col == 1 {
 				res.WriteRune('A')
-			} else if row == y && (col == 1 || col == x) {
+
+				// Top-right
+			} else if row == 1 && col == x {
 				res.WriteRune('C')
-			} else if row == 1 || row == y {
+
+				// Bottom-left
+			} else if row == y && col == 1 {
+				res.WriteRune('C')
+
+				// Bottom-right
+			} else if row == y && col == x {
+				res.WriteRune('A')
+
+				// Borders
+			} else if row == 1 || row == y || col == 1 || col == x {
 				res.WriteRune('B')
-			} else if col == 1 || col == x {
-				res.WriteRune('B')
+
+				// Inside
 			} else {
 				res.WriteRune(' ')
 			}
 		}
+
 		res.WriteRune('\n')
 	}
+
 	return res.String()
 }
 
