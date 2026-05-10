@@ -226,3 +226,5 @@ func runChecker() {
 		fmt.Println(strings.Join(matches, " || "))
 	}
 }
+
+
