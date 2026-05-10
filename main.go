@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"strings"
 	"path/filepath"
 	"strconv"
+	"strings"
 )
 
 func quadA(x, y int) string {
